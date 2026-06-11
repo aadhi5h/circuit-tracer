@@ -1,12 +1,7 @@
 from src.model import load_model
 from src.prompts import get_clean_corrupted_pair
 from src.patching import patch_activation
-
-def get_answer_logit_diff(model, logits, correct_token: str, incorrect_token: str):
-    correct_id = model.to_single_token(correct_token)
-    incorrect_id = model.to_single_token(incorrect_token)
-    last_logits = logits[0, -1]
-    return (last_logits[correct_id] - last_logits[incorrect_id]).item()
+from src.utils import get_answer_logit_diff
 
 if __name__ == "__main__":
     model = load_model()
