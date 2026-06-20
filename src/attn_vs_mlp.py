@@ -5,7 +5,8 @@ from src.rank_heads import rank_all_heads
 
 def patch_mlp(model, corrupted_tokens, clean_cache, layer: int):
     def hook_fn(activation, hook):
-        return clean_cache["mlp_out", layer]
+        activation[:, -1, :] = clean_cache["mlp_out", layer][:, -1, :]
+        return activation
 
     logits = model.run_with_hooks(
         corrupted_tokens,

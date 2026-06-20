@@ -4,7 +4,7 @@ from src.utils import get_answer_logit_diff
 
 def patch_single_head(model, corrupted_tokens, clean_cache, layer: int, head: int):
     def hook_fn(activation, hook):
-        activation[:, :, head, :] = clean_cache["z", layer][:, :, head, :]
+        activation[:, -1, head, :] = clean_cache["z", layer][:, -1, head, :]
         return activation
 
     logits = model.run_with_hooks(

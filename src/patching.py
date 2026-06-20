@@ -1,9 +1,10 @@
 from src.model import load_model
 from src.utils import full_hook_name
 
-def patch_activation(model, corrupted_tokens, clean_cache, hook_name: str, layer: int):
+def patch_activation(model, corrupted_tokens, clean_cache, hook_name: str, layer: int, position: int = -1):
     def hook_fn(activation, hook):
-        return clean_cache[hook_name, layer]
+        activation[:, position, :] = clean_cache[hook_name, layer][:, position, :]
+        return activation
 
     logits = model.run_with_hooks(
         corrupted_tokens,
