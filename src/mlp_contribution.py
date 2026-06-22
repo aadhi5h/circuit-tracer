@@ -19,4 +19,4 @@ if __name__ == "__main__":
     results = mlp_logit_attribution(model, clean, " Paris")
     top5 = sorted(results, key=lambda x: -x[1])[:5]
     for layer, score in top5:
-        print(f"layer {layer} mlp: attribution {score:.3f}")
+        print(f"layer {layer} mlp: attribution {score:.3f}")4
