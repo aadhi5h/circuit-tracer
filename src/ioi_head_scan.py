@@ -41,8 +41,13 @@ def scan_heads_averaged(model, examples: list):
 
 if __name__ == "__main__":
     model = load_model()
-    examples = build_ioi_dataset()[:5]  # small subset — full scan is 144 patches PER example
+    examples = build_ioi_dataset()[:15]  # scaled up from 5; ~6 min expected based on Day 20 timing
     ranked = scan_heads_averaged(model, examples)
-    print("top 5 heads (averaged over 5 examples):")
-    for (layer, head), score in ranked[:5]:
+
+    print("top 10 heads (averaged over 15 examples):")
+    for (layer, head), score in ranked[:10]:
         print(f"  L{layer}H{head}: {score:.3f}")
+
+    print()
+    print(f"score range: max={ranked[0][1]:.3f} min={ranked[-1][1]:.3f}")
+    print(f"top head margin over #2: {ranked[0][1] - ranked[1][1]:.3f}")
