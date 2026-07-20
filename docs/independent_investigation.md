@@ -11,14 +11,14 @@ not "are" (agrees with plural "cabinets", which is closer in the sentence).
 
 ## Why this behavior
 - Different failure mode than IOI: this is syntactic agreement under
-  distraction, not entity/indirect-object tracking — likely engages
+  distraction, not entity/indirect-object tracking - likely engages
   different circuitry (attention to subject head-noun vs. surface-adjacent
   noun).
 - Well-studied in NLP/interpretability literature (subject-verb agreement
   under attractor nouns), giving a cross-check point like IOI's name-mover
   heads.
 - Reuses the entire existing pipeline (prompts, corruption, patching,
-  ranking, serialization) built through Day 30 — only the dataset and
+  ranking, serialization) built through Day 30 - only the dataset and
   target tokens change.
 
 ## Plan

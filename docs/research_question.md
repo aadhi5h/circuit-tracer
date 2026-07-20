@@ -6,7 +6,7 @@ responsible for correctly identifying the indirect object over the subject
 in sentences with the "X and Y did Z, X did W to ___" structure?
 
 ## Approach
-1. Establish baseline behavior across multiple templates/name pairs (done —
+1. Establish baseline behavior across multiple templates/name pairs (done -
    see `tests/test_ioi_baseline.py`).
 2. Build clean/corrupted pairs for this task (e.g. swap which name is
    indirect object, or use random name-swap corruption).

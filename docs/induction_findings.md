@@ -1,8 +1,8 @@
-# Induction Head Findings — gpt2-small
+# Induction Head Findings - gpt2-small
 
 ## Method
 Repeated a random token sequence (length 20, tokens repeated twice) and measured
-each attention head's average weight on the "induction offset" — the position
+each attention head's average weight on the "induction offset" - the position
 (seq_len - 1) tokens back, which is where an induction head should look to
 copy the pattern from the first occurrence.
 
@@ -19,7 +19,7 @@ Top heads by induction score:
 
 ## Notes
 - L5H1, L5H5, and L6H9 match induction heads previously documented for
-  gpt2-small in existing interpretability literature — confirms the
+  gpt2-small in existing interpretability literature - confirms the
   measurement method is correctly identifying real induction behavior,
   not an artifact.
 - All top 5 scores cluster in layers 5–7, consistent with induction being a

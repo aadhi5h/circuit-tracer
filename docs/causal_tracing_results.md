@@ -24,7 +24,7 @@ Mean-per-layer heavily dilutes signal: most heads in any given layer have
 near-zero individual effect, so averaging pulls every layer toward the
 corrupted baseline (-0.884). Layer 8 still edged out as least negative,
 consistent with it containing the strongest single head found so far
-(L8H6, 0.812) — but the chart understated how concentrated the effect
+(L8H6, 0.812) - but the chart understated how concentrated the effect
 actually is.
 
 ## Fix
@@ -33,7 +33,7 @@ actually matters is "does this layer contain a standout head," not "is this
 layer uniformly strong." This surfaces the true concentration of effect
 much more clearly than the mean version above.
 
-## Result (max aggregation — updated)
+## Result (max aggregation - updated)
 layer  0 |  -0.770
 layer  1 |  -0.770
 layer  2 |  -0.771

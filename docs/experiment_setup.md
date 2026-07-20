@@ -14,7 +14,7 @@ changing one file instead of every script.
 ## Status
 [Note: pick one]
 - Scripts through Day 11 have been updated to import from `DEFAULT_CONFIG`.
-- Scripts through Day 11 still use hardcoded strings; migration deferred —
+- Scripts through Day 11 still use hardcoded strings; migration deferred -
   new scripts from Day 12 onward should use `ExperimentConfig` directly.
 
 ## Usage

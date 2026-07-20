@@ -12,7 +12,7 @@ verb (agreeing with distractor), same methodology as IOI's
 `get_answer_logit_diff`.
 
 ## Hypothesis
-See `docs/agreement_hypothesis.md` — predicting mid-to-late layer
+See `docs/agreement_hypothesis.md` - predicting mid-to-late layer
 concentration (7-10) similar to IOI, with a falsification criterion around
 whether the model does genuine subject-tracking vs. surface-proximity
 matching to the distractor.

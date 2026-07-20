@@ -19,7 +19,7 @@ Based on the IOI findings (Days 20-24), where name-mover heads in layers
 - If distractor-number information dominates the verb prediction (i.e.
   corruption of the distractor alone flips the answer as strongly as
   corrupting the actual subject), that suggests the circuit is doing
-  surface-proximity matching rather than genuine subject-tracking —
+  surface-proximity matching rather than genuine subject-tracking -
   a known failure mode in real subject-verb agreement literature for
   smaller models.
 - If effect is spread evenly across many heads/layers rather than
