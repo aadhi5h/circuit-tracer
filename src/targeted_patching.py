@@ -2,13 +2,24 @@ from src.model import load_model
 from src.prompts import get_clean_corrupted_pair
 from src.utils import get_answer_logit_diff, full_hook_name
 
+TOP_LEVEL_HOOKS = {"embed", "pos_embed"}
+
+def get_hook_path(hook_name: str, layer: int) -> str:
+    if hook_name in TOP_LEVEL_HOOKS:
+        return f"hook_{hook_name}"
+    return full_hook_name(layer, hook_name)
+
 def patch_at_position(model, corrupted_tokens, clean_cache, hook_name: str, layer: int, position: int):
     def hook_fn(activation, hook):
-        activation[:, position, :] = clean_cache[hook_name, layer][:, position, :]
+        if hook_name in TOP_LEVEL_HOOKS:
+            clean_value = clean_cache[hook_name]
+        else:
+            clean_value = clean_cache[hook_name, layer]
+        activation[:, position, :] = clean_value[:, position, :]
         return activation
     logits = model.run_with_hooks(
         corrupted_tokens,
-        fwd_hooks=[(full_hook_name(layer, hook_name), hook_fn)]
+        fwd_hooks=[(get_hook_path(hook_name, layer), hook_fn)]
     )
     return logits
 
